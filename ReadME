@@ -24,6 +24,7 @@ Navigate to the repository page.
 Click Code > HTTPS > Copy the URL.
 Run the following command in your terminal or command prompt:
 git clone https://github.com/thevexis1/Auburn-Phys-2400.git
+
 Terminal Commands for Mac and Windows Users
 
 For Mac Users
@@ -36,6 +37,7 @@ OR
 git clone https://github.com/thevexis1/Auburn-Phys-2400.git
 Verify the repository contents:
 ls
+
 For Windows Users
 Open Command Prompt or Git Bash.
 Navigate to the desired folder using cd:
@@ -71,8 +73,7 @@ Discard changes in a file:
 git checkout -- <file>
 Using GitHub Desktop
 
-Clone a Repository:
-Open GitHub Desktop.
+Using GitHub Desktop:
 Click File > Clone Repository.
 Paste the SSH or HTTPS URL into the URL field.
 View Changes:
