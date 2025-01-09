@@ -1,0 +1,90 @@
+# Auburn PHYS 2400 - Computational Physics Class Repository
+
+Welcome to the Auburn PHYS 2400 repository! This repository contains code, resources, and examples for the Computational Physics class. You will find assignments, project files, and supplementary materials to aid in your learning.
+
+## Repository Contents
+- **Assignments**: Step-by-step coding exercises.
+- **Examples**: Sample scripts and physics simulations.
+- **Resources**: Documentation and helpful references.
+
+## How to Use This Repository
+Follow the instructions below to clone the repository, work with the files, and contribute changes.
+
+
+## How to Clone This Repository
+
+### Clone Using SSH
+1. Open your terminal or command prompt.
+2. Run the following command:
+   ```bash
+   git clone git@github.com:thevexis1/Auburn-Phys-2400.git
+Clone Using HTTPS
+Copy the repository HTTPS URL from GitHub:
+Navigate to the repository page.
+Click Code > HTTPS > Copy the URL.
+Run the following command in your terminal or command prompt:
+git clone https://github.com/thevexis1/Auburn-Phys-2400.git
+Terminal Commands for Mac and Windows Users
+
+For Mac Users
+Open the Terminal application.
+Navigate to the folder where you want to clone the repository:
+cd /path/to/your/folder
+Clone the repository using either SSH or HTTPS:
+git clone git@github.com:thevexis1/Auburn-Phys-2400.git
+OR
+git clone https://github.com/thevexis1/Auburn-Phys-2400.git
+Verify the repository contents:
+ls
+For Windows Users
+Open Command Prompt or Git Bash.
+Navigate to the desired folder using cd:
+cd C:\path\to\your\folder
+Clone the repository using either SSH or HTTPS:
+git clone git@github.com:thevexis1/Auburn-Phys-2400.git
+OR
+git clone https://github.com/thevexis1/Auburn-Phys-2400.git
+Verify the repository contents:
+dir
+Common Git Commands
+
+Here’s a quick reference for commonly used Git commands:
+
+Clone a repository:
+git clone <repository-URL>
+Navigate to the repository folder:
+cd Auburn-Phys-2400
+Check the current status of the repository:
+git status
+Stage changes for a commit:
+git add <file-name>  # Add a specific file
+git add .            # Add all changes
+Commit changes with a message:
+git commit -m "Your commit message"
+Push changes to GitHub:
+git push origin main
+Pull the latest changes from GitHub:
+git pull origin main
+View commit history:
+git log
+Discard changes in a file:
+git checkout -- <file>
+Using GitHub Desktop
+
+Clone a Repository:
+Open GitHub Desktop.
+Click File > Clone Repository.
+Paste the SSH or HTTPS URL into the URL field.
+View Changes:
+Open the Changes tab to view modified files.
+Commit Changes:
+Add a commit message in the text box.
+Click Commit to main (or your branch).
+Push Changes to GitHub:
+Click Push origin to upload your commits.
+Pull Changes:
+Click Fetch origin to pull updates from GitHub.
+Switch Branches:
+Use the Branch menu to create, switch, or merge branches.
+Open in Terminal:
+Click Repository > Open in Terminal to perform advanced Git commands.
