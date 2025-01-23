@@ -10,11 +10,13 @@ Created on Thu Jan  9 13:12:08 2025
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
+#%% 
+x = np.linspace(-6, 6, 100)
+y = np.exp(-(x**2/10.))*(np.cos(x))**2
+y1 = np.exp(-(x**2/10.))
 plt.figure()
-plt.plot(x, y, label='Sine Wave')
+plt.plot(x, y, label='Function Wave', color='pink')
+plt.plot(x, y1, label='Gaussian', color='red')
 plt.title("Line Plot")
 plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
