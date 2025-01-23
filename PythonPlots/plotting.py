@@ -76,8 +76,8 @@ plt.show()
 
 #%% Vector Field (Quiver Plot)
 X, Y = np.meshgrid(np.linspace(-2, 2, 10), np.linspace(-2, 2, 10))
-U = -Y  # x-component of vector
-V = X   # y-component of vector
+U = -Y+X  # x-component of vector
+V = X**2   # y-component of vector
 plt.figure()
 plt.quiver(X, Y, U, V, color='red')
 plt.title("Vector Field (Quiver Plot)")
