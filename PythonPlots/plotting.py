@@ -11,10 +11,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
+x = np.linspace(-4, 4, 100)
+y = np.exp(-(x**2/10.))*(np.cos(x))**2
+y1 = np.exp(-(x**2/10.))
 plt.figure()
-plt.plot(x, y, label='Sine Wave')
+plt.plot(x, y, label='Function Wave')
+plt.plot(x, y1, label='Gaussian')
 plt.title("Line Plot")
 plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
@@ -97,7 +99,8 @@ plt.show()
 #%% Box Plot
 data = [np.random.rand(50) * i for i in range(1, 6)]
 plt.figure()
-plt.boxplot(data, vert=True, patch_artist=True, labels=['A', 'B', 'C', 'D', 'E'])
+# plt.boxplot(data, vert=True, patch_artist=True, labels=['A', 'B', 'C', 'D', 'E'])
+plt.violinplot(data, showmeans=False, showmedians=True,showextrema=True)
 plt.title("Box Plot")
 plt.xlabel("Categories")
 plt.ylabel("Values")
