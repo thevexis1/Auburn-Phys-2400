@@ -10,9 +10,9 @@ Created on Thu Jan  9 13:12:08 2025
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
+#%%
+x = np.linspace(-5, 5, 1000)
+y = ((np.cos(x))**2)*(np.exp(-x**4))
 plt.figure()
 plt.plot(x, y, label='Sine Wave')
 plt.title("Line Plot")
