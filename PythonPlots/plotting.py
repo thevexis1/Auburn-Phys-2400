@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 #%% 
 x = np.linspace(-6, 6, 100)
-y = np.exp(-(x**2/10.))*(np.cos(x))**2
+y = np.exp(-((2*x)**2/10.))*(np.cos((x*3)))**2
 y1 = np.exp(-(x**2/10.))
 plt.figure()
 plt.plot(x, y, label='Function Wave', color='pink')
