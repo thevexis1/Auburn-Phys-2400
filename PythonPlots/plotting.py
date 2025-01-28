@@ -9,12 +9,16 @@ Created on Thu Jan  9 13:12:08 2025
 #%% Line Plot
 import numpy as np
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
 
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
-plt.figure()
-plt.plot(x, y, label='Sine Wave')
+x = np.linspace(-4, 4, 100)
+y1 = np.exp(-(x**2/10.))*(np.cos(2*x))**2
+y2= np.exp(-(x**2/10.))      
+y3=np.cos(x)**2
+
+plt.plot(x, y1, color='pink', linewidth=4.5, label='e^-x^2*cos(x)^2')
+plt.plot(x, y2, color='pink', linewidth=4.5, label='e^-x^2')
+plt.plot(x, y3, color='blue', linewidth=2, label='cos(x)**2')
+
 plt.title("Line Plot")
 plt.xlabel("X-axis")
 plt.ylabel("Y-axis")
