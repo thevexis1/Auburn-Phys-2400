@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+<<<<<<< HEAD
 Created on Wed Feb  5 10:22:23 2025
 
 @author: bradleyandrew
@@ -26,10 +27,32 @@ def cylindrical_to_cartesian(r, theta, z):
     """
     Converts Cylindrical (r, θ, z) to Cartesian (x, y, z)
     """
+=======
+Created on Wed Feb  5 12:37:57 2025
+
+@author: bradleyandrew
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import sympy as sp
+import jax
+import jax.numpy as jnp
+
+# Cartesian to Cylindrical
+def cartesian_to_cylindrical(x, y, z):
+    r = np.sqrt(x**2 + y**2)
+    theta = np.arctan2(y, x)
+    return r, theta, z
+
+def cylindrical_to_cartesian(r, theta, z):
+>>>>>>> main
     x = r * np.cos(theta)
     y = r * np.sin(theta)
     return x, y, z
 
+<<<<<<< HEAD
 # ============================
 # 2. Cartesian to Spherical
 # ============================
@@ -46,11 +69,22 @@ def spherical_to_cartesian(r, theta, phi):
     """
     Converts Spherical (r, θ, φ) to Cartesian (x, y, z)
     """
+=======
+# Cartesian to Spherical
+def cartesian_to_spherical(x, y, z):
+    r = np.sqrt(x**2 + y**2 + z**2)
+    theta = np.arctan2(np.sqrt(x**2 + y**2), z)
+    phi = np.arctan2(y, x)
+    return r, theta, phi
+
+def spherical_to_cartesian(r, theta, phi):
+>>>>>>> main
     x = r * np.sin(theta) * np.cos(phi)
     y = r * np.sin(theta) * np.sin(phi)
     z = r * np.cos(theta)
     return x, y, z
 
+<<<<<<< HEAD
 # ============================
 # 3. Dipole Coordinates
 # ============================
@@ -89,11 +123,32 @@ def jacobian_cartesian_to_spherical(x, y, z):
     """
     r, theta, phi = cartesian_to_spherical(x, y, z)
 
+=======
+# Dipole Coordinates
+def cartesian_to_dipole(x, y, z):
+    r = np.sqrt(x**2 + y**2 + z**2)
+    theta_d = np.arccos(z / r)
+    phi = np.arctan2(y, x)
+    L = r / np.sin(theta_d)**2
+    return L, theta_d, phi
+
+# Helical Coordinates
+def cartesian_to_helical(x, y, z, pitch=1):
+    r = np.sqrt(x**2 + y**2)
+    theta = np.arctan2(y, x)
+    h = z - pitch * theta
+    return r, theta, h
+
+# Jacobian Calculation
+def jacobian_cartesian_to_spherical(x, y, z):
+    r, theta, phi = cartesian_to_spherical(x, y, z)
+>>>>>>> main
     J = np.array([
         [np.sin(theta) * np.cos(phi), np.sin(theta) * np.sin(phi), np.cos(theta)],
         [np.cos(theta) * np.cos(phi), np.cos(theta) * np.sin(phi), -np.sin(theta)],
         [-np.sin(phi), np.cos(phi), 0]
     ])
+<<<<<<< HEAD
 
     return J
 
@@ -125,6 +180,35 @@ if __name__ == "__main__":
 #%% Import necessary libraries
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+=======
+    return J
+
+# Example Demonstrations
+if __name__ == "__main__":
+    x, y, z = 1, 1, 1
+
+    # Cartesian to Cylindrical
+    cylindrical = cartesian_to_cylindrical(x, y, z)
+    print(f"Cartesian (1,1,1) → Cylindrical: {cylindrical}")
+
+    # Cartesian to Spherical
+    spherical = cartesian_to_spherical(x, y, z)
+    print(f"Cartesian (1,1,1) → Spherical: {spherical}")
+
+    # Dipole Conversion
+    dipole = cartesian_to_dipole(x, y, z)
+    print(f"Cartesian (1,1,1) → Dipole: {dipole}")
+
+    # Helical Conversion
+    helical = cartesian_to_helical(x, y, z)
+    print(f"Cartesian (1,1,1) → Helical: {helical}")
+
+    # Jacobian Calculation
+    J = jacobian_cartesian_to_spherical(x, y, z)
+    print(f"Jacobian Matrix for Cartesian → Spherical at (1,1,1):\n{J}")
+
+#%%
+>>>>>>> main
 
 # Function to plot Cartesian coordinate system
 def plot_cartesian(ax):
@@ -150,6 +234,7 @@ def plot_cartesian(ax):
     ax.set_zlabel('Z')
 
 # Function to plot Spherical coordinate system
+<<<<<<< HEAD
 def plot_spherical(ax):
     """
     Plots the Spherical coordinate system with a distorted volume element.
@@ -161,6 +246,18 @@ def plot_spherical(ax):
     r = 0.55
 
     Phi, Theta = np.meshgrid(phi, theta)
+=======
+def plot_spherical(ax, r=0.5, dtheta=np.pi/4, dphi=np.pi/4):
+    """
+    Plots the Spherical coordinate system with an appropriately scaled volume element.
+    """
+    ax.set_title("Spherical Volume Element")
+
+    phi = np.linspace(0, dphi, 30)
+    theta = np.linspace(0, dtheta, 30)
+    Phi, Theta = np.meshgrid(phi, theta)
+    
+>>>>>>> main
     X = r * np.sin(Theta) * np.cos(Phi)
     Y = r * np.sin(Theta) * np.sin(Phi)
     Z = r * np.cos(Theta)
@@ -171,7 +268,10 @@ def plot_spherical(ax):
     ax.set_ylabel('Y')
     ax.set_zlabel('Z')
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 # Function to plot the Jacobian matrix
 def plot_jacobian(ax, J):
     """
@@ -194,7 +294,13 @@ def jacobian_cartesian_to_spherical(x, y, z):
     """
     Computes the Jacobian matrix for Cartesian to Spherical transformation.
     """
+<<<<<<< HEAD
     r, theta, phi = np.sqrt(x**2 + y**2 + z**2), np.arccos(z / np.sqrt(x**2 + y**2 + z**2)), np.arctan2(y, x)
+=======
+    r = np.sqrt(x**2 + y**2 + z**2)
+    theta = np.arccos(z / r)
+    phi = np.arctan2(y, x)
+>>>>>>> main
 
     J = np.array([
         [np.sin(theta) * np.cos(phi), np.sin(theta) * np.sin(phi), np.cos(theta)],
@@ -227,11 +333,15 @@ def visualize_transformation():
     plt.tight_layout()
     plt.show()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 # Run the visualization
 visualize_transformation()
 
 
+<<<<<<< HEAD
 
 #%% Import necessary libraries
 
@@ -241,6 +351,9 @@ from mpl_toolkits.mplot3d import Axes3D
 import sympy as sp
 import jax
 import jax.numpy as jnp
+=======
+#%%
+>>>>>>> main
 
 def plot_cylindrical(ax):
     ax.set_title("Cylindrical Coordinates")
@@ -340,7 +453,10 @@ def visualize_coordinate_systems():
     plt.show()
 
 visualize_coordinate_systems()
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> main
