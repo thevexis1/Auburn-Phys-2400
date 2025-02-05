@@ -16,6 +16,9 @@ print("--- Algebra of Complex Numbers ---")
 z1 = 3 + 4j
 z2 = 1 - 2j
 
+print("z1=",z1)
+print("z2=",z2)
+
 # Addition, Subtraction, Multiplication, Division
 print("z1 + z2 =", z1 + z2)
 print("z1 - z2 =", z1 - z2)
@@ -23,7 +26,7 @@ print("z1 * z2 =", z1 * z2)
 print("z1 / z2 =", z1 / z2)
 
 # Conjugate and Absolute Value
-print("Conjugate of z1:", np.conj(z1))
+print("Complex conjugate of z1:", np.conj(z1))
 print("|z1| =", abs(z1))
 
 #%% Part 2: Representations of Complex Numbers
@@ -37,13 +40,13 @@ print(f"Polar form of z1: r = {r}, theta = {theta} radians")
 
 # Exponential Form
 z_exp = r * np.exp(1j * theta)
-print("Exponential form of z1:", z_exp)
+print("Rectangular form calculated from exponential form of z1:", z_exp)
 
 #%% Part 3: Solving Equations with Complex Roots
 print("\n--- Solving Equations with Complex Roots ---")
 from numpy.polynomial.polynomial import Polynomial
 
-# Example 1: Solving a differential equation with complex roots
+# Example 1: Solving a polynomial equation with complex roots
 # Equation: x^2 + 4x + 5 = 0
 coefficients = [1, 4, 5]  # Coefficients of the polynomial
 p = Polynomial(coefficients)
