@@ -67,6 +67,17 @@ print(f"xi = {solution2[0]:.2f}, eta = {solution2[1]:.2f}, zeta = {solution2[2]:
 This section will be for you to solve the next two sections of the assignment
 
 """
+import matplotlib.pyplot as plt
 
 
-# To compute the inverse ex: C_inv = np.linalg.inv(C)
+# To compute the inverse ex: 
+C_inv = np.linalg.inv(C2)
+
+
+
+plt.matshow(C_inv)
+plt.plot()
+
+
+
+
