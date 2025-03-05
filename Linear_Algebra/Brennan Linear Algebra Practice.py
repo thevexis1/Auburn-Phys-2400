@@ -6,6 +6,10 @@ Created on Thu Feb 20 10:30:31 2025
 @author: brennan
 """
 import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from scipy.linalg import eigh
+#%%
 'Question 1' 
 #Matrix
 A = np.array([[2,-1,3,4,-5,6,7,8],
@@ -72,6 +76,81 @@ while iteration < max_iterations:
         break #Stop if changes are smaller than the threshold
         
     D_prev = D_new #Update for the next iteration 
+
         
 #Output results 
 print(f"Steady-state matrix reached in {iteration} iterations:\n", D_new)
+#%%
+'Question 4'
+"For both of the questions I uploaded pictures of the problem to ChagtGPT and got this and then" 
+"it asked me if I wanted to have an animated graph so I told it yes and it animated the graph of the function"
+#Define Matrix M
+M = np.diag ([1, 2, 1, 2, 3])
+
+#Define the stiffness matrix K
+K = np.array ([
+    [8,-5,0,0,0],
+    [-5,9,-4,0,0],
+    [0,-4,10,-6,0],
+    [0,0,-6,8,-2],
+    [0,0,0,-2,9]])
+
+#Solve the generalized eigenvalue problem K v = λ M v
+eigenvalues, eigenvectors = eigh (K,M)
+
+# Compute the angular frequencies (ω) from eigenvalues (λ = ω^2)
+frequencies = np.sqrt (eigenvalues)
+
+# Print results
+print("Angular Frequencies (ω):")
+print(frequencies)
+
+print("\nEigenvectors (Normal Modes):")
+print(eigenvectors)
+#%%
+'Graph for Question 4'
+#Define Matrix M
+M = np.diag ([1, 2, 1, 2, 3])
+
+#Define the stiffness matrix K
+K = np.array ([
+    [8,-5,0,0,0],
+    [-5,9,-4,0,0],
+    [0,-4,10,-6,0],
+    [0,0,-6,8,-2],
+    [0,0,0,-2,9]])
+
+#Solve the generalized eigenvalue problem K v = λ M v
+eigenvalues, eigenvectors = eigh (K,M)
+
+# Compute the angular frequencies (ω) from eigenvalues (λ = ω^2)
+frequencies = np.sqrt (eigenvalues)
+
+# Normalize eigenvectors for better visualization
+eigenvectors = eigenvectors / np.max(np.abs(eigenvectors), axis=0)
+
+# Create an animation for normal modes
+fig, ax = plt.subplots()
+ax.set_xlim(-2, 2)
+ax.set_ylim(0, 6)
+ax.set_yticks(range(1, 6))
+ax.set_xticks([])
+
+points, = ax.plot([], [], 'bo', markersize=10)  # Blue circles for masses
+lines, = ax.plot([], [], 'k-')  # Black lines for springs
+
+# Function to update the animation
+def update(frame, mode):
+    phase = np.sin(2 * np.pi * frame / 50)  # Oscillatory motion
+    x_positions = eigenvectors[:, mode] * phase  # Displacement in the mode
+    points.set_data(x_positions, np.arange(1, 6))  # Update mass positions
+    lines.set_data(x_positions, np.arange(1, 6))  # Update spring positions
+    return points, lines
+
+# Create and display animations for all modes
+animations = []
+for mode in range(5):
+    ani = animation.FuncAnimation(fig, update, frames=50, interval=50, fargs=(mode,))
+    animations.append(ani)
+    plt.title(f'Normal Mode {mode+1} (ω = {frequencies[mode]:.2f})')
+    plt.show()
