@@ -47,11 +47,27 @@ print(f"xi = {solution[0]:.2f}, eta = {solution[1]:.2f}, zeta = {solution[2]:.2f
 
 #%%
 
+C2 = np.array([[2, -1, 3, 8, 1],
+              [1, 3, -2, 0, 3],
+              [4, -3, 1, 4, -5],
+              [6, 6, 1, 0, -9],
+              [8, 9, 1, 1, 5]])  # Coefficients of xi, eta, zeta
+
+b2 = np.array([5, -3, 4, 8, 12])  # Right-hand side values
+
+solution2 = np.linalg.solve(C2, b2)  # Solve for [xi, eta, zeta]
+
+print("Solving Larger System of Equations")
+print(f"xi = {solution2[0]:.2f}, eta = {solution2[1]:.2f}, zeta = {solution2[2]:.2f}, theta = = {solution2[3]:.2f}, beta = = {solution2[4]:.2f}")
+
+#%%
+
 """
 
 This section will be for you to solve the next two sections of the assignment
 
 """
+<<<<<<< HEAD
 A = np.array([[2,-1,3,4,-5,6,7,8],
               [1,2,4,3,6,5,8,7],
              [3,4,2.6,1,0,-7,6.9,5],
@@ -60,5 +76,19 @@ A = np.array([[2,-1,3,4,-5,6,7,8],
              [6,5,7,8,2,1.1,3,4],
              [7,-8,0,6,4,3,0,2],
              [8,7,6,5,3,4,2,1]])
+=======
+import matplotlib.pyplot as plt
 
-# To compute the inverse ex: C_inv = np.linalg.inv(C)
+
+# To compute the inverse ex: 
+C_inv = np.linalg.inv(C2)
+
+
+
+plt.matshow(C_inv)
+plt.plot()
+
+
+
+>>>>>>> main
+
