@@ -29,7 +29,7 @@ def solve_potential(L, Nx, Ny, V0, tol=1e-4, omega=1.5):
     dy = L / Ny  # Step in y-direction
     
     V = np.zeros((Nx+1, Ny+1))  # Initialize potential grid
-    V[0, :] = V0  # Boundary condition at x=0
+    V[0, :] = V0 
     
     error = 1
     while error > tol:
