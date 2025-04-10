@@ -12,7 +12,7 @@ ChatGPT prompt:
     
 The code uses a SOR (Successive Over-Relaxation method) to solve the equations.
 
-In the class we would like you to
+In the class we would like you to do the following
     1) Add a constant potential on the lower end of the plate (along y=0)
     2) Try other boundary conditions at different walls (how about a sinusoidally varying potential at one boundary?)
     3) Try to add a non-linear spatial mesh to better map out the changes in the potential
