@@ -27,10 +27,9 @@ import matplotlib.pyplot as plt
 def solve_potential(L, Nx, Ny, V0, tol=1e-4, omega=1.5):
     dx = 1 / Nx  # Step in x-direction
     dy = L / Ny  # Step in y-direction
-    
     V = np.zeros((Nx+1, Ny+1))  # Initialize potential grid
     V[0, :] = V0 
-    
+
     error = 1
     while error > tol:
         V_old = V.copy()
