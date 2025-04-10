@@ -12,6 +12,12 @@ ChatGPT prompt:
     
 The code uses a SOR (Successive Over-Relaxation method) to solve the equations.
 
+In the class we would like you to
+    1) Add a constant potential on the lower end of the plate (along y=0)
+    2) Try other boundary conditions at different walls (how about a sinusoidally varying potential at one boundary?)
+    3) Try to add a non-linear spatial mesh to better map out the changes in the potential
+    4) Explote the tol and omega parameters, to see what it takes to make the code stop working
+
 @author: lochstu
 """
 
@@ -24,6 +30,7 @@ def solve_potential(L, Nx, Ny, V0, tol=1e-4, omega=1.5):
     
     V = np.zeros((Nx+1, Ny+1))  # Initialize potential grid
     V[0, :] = V0  # Boundary condition at x=0
+    V[-1, :] = V0  # Boundary condition at x=0
     
     error = 1
     while error > tol:
