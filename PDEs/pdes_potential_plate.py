@@ -27,10 +27,10 @@ import matplotlib.pyplot as plt
 def solve_potential(L, Nx, Ny, V0, tol=1e-4, omega=1.5):
     dx = 1 / Nx  # Step in x-direction
     dy = L / Ny  # Step in y-direction
-    
+    n=5
     V = np.zeros((Nx+1, Ny+1))  # Initialize potential grid
-    V[0, :] = V0 
-    
+    V[0, :] = np.sin(n*np.pi*np.linspace(0, L, Ny+1)/L)
+    V[:,0] =  np.sin(n*np.pi*np.linspace(0, L, Ny+1)/L)
     error = 1
     while error > tol:
         V_old = V.copy()
