@@ -27,10 +27,12 @@ import matplotlib.pyplot as plt
 def solve_potential(L, Nx, Ny, V0, tol=1e-4, omega=1.5):
     dx = 1 / Nx  # Step in x-direction
     dy = L / Ny  # Step in y-direction
-    n=5
+    x = np.linspace(0,1,Nx+1)
+    y = np.linspace(0,L,Ny+1)
     V = np.zeros((Nx+1, Ny+1))  # Initialize potential grid
-    V[0, :] = np.sin(n*np.pi*np.linspace(0, L, Ny+1)/L)
-    V[:,0] =  np.sin(n*np.pi*np.linspace(0, L, Ny+1)/L)
+    V[0, :] = np.tanh(7*y)
+    V[:,0] = 1/(x+.7)
+    V[:,-1] = np.tan(np.pi*x/8.6)
     error = 1
     while error > tol:
         V_old = V.copy()
@@ -49,6 +51,7 @@ L = 1.0  # Plate height
 Nx = 50  # Grid points in x-direction
 Ny = 50  # Grid points in y-direction
 V0 = 1.0  # Potential at x=0
+
 
 V = solve_potential(L, Nx, Ny, V0)
 
