@@ -24,20 +24,21 @@ In the class we would like you to do the following
 import numpy as np
 import matplotlib.pyplot as plt
 
-def solve_potential(L, Nx, Ny, V0, tol=1e-4, omega=1.5):
-    dx = 1 / Nx  # Step in x-direction
+def solve_potential(L, Nx, Ny, V0, tol=1e-1, omega=1.5):
+    dx = L / Nx  # Step in x-direction
     dy = L / Ny  # Step in y-direction
     V = np.zeros((Nx+1, Ny+1))  # Initialize potential grid
-    V[0, :] = V0 
-
+    V[0,:]=V0
+   
+    
     error = 1
     while error > tol:
         V_old = V.copy()
         for i in range(1, Nx):  # Skip x=0 boundary
-            for j in range(1, Ny):  # Skip y=0 and y=L boundaries
+            for j in range(1, Ny-1):  # Skip y=0 and y=L boundaries
                 V[i, j] = (1 - omega) * V_old[i, j] + omega * 0.25 * (V[i+1, j] + V[i-1, j] + V[i, j+1] + V[i, j-1])
         
-        V[-1, :] = V[-2, :]  # Ensure decay as x -> infinity
+       # V[-1, :] = V[-2, :]  # Ensure decay as x -> infinity
         
         error = np.max(np.abs(V - V_old))
     
@@ -47,7 +48,7 @@ def solve_potential(L, Nx, Ny, V0, tol=1e-4, omega=1.5):
 L = 1.0  # Plate height
 Nx = 50  # Grid points in x-direction
 Ny = 50  # Grid points in y-direction
-V0 = 1.0  # Potential at x=0
+V0 = 3.0  # Potential at x=0
 
 V = solve_potential(L, Nx, Ny, V0)
 
