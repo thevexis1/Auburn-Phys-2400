@@ -1,0 +1,37 @@
+         3999340 function calls (3999339 primitive calls) in 1.138 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      2/1    0.000    0.000    1.138    1.138 {built-in method builtins.exec}
+        1    0.000    0.000    1.138    1.138 <string>:1(<module>)
+      100    0.377    0.004    1.134    0.011 optimizecode.py:122(compute_potential_naive)
+   499900    0.426    0.000    0.740    0.000 linalg.py:2383(norm)
+        1    0.001    0.001    0.483    0.483 optimizecode.py:131(run_naive)
+   499900    0.154    0.000    0.154    0.000 {method 'dot' of 'numpy.ndarray' objects}
+   499900    0.039    0.000    0.058    0.000 linalg.py:140(isComplexType)
+   499900    0.053    0.000    0.053    0.000 {method 'ravel' of 'numpy.ndarray' objects}
+   999800    0.043    0.000    0.043    0.000 {built-in method builtins.issubclass}
+   499900    0.024    0.000    0.024    0.000 {built-in method numpy.asarray}
+   499900    0.021    0.000    0.021    0.000 linalg.py:2379(_norm_dispatcher)
+
+
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+   111                                         def run_kdtree(particles, k=50):
+   112                                             start = time.time()
+   113                                             tree = cKDTree(positions)
+   114                                             neighbors = tree.query(positions[:particles], k=k+1)[1]
+   115                                             potentials = np.zeros(particles)
+   116                                         
+   117                                             for i in range(particles):
+   118                                                 phi = 0.0
+   119                                                 for j in neighbors[i][1:]:
+   120                                                     r = np.linalg.norm(positions[i] - positions[j])
+   121                                                     if r != 0:
+   122    157.5 MiB    157.5 MiB           1                   phi -= G * masses[j] / r
+   123    157.5 MiB      0.0 MiB           1           potentials[i] = phi
+   124    157.6 MiB   -110.2 MiB        5001       end = time.time()
+   125    157.6 MiB      0.0 MiB        5000       print(f"KD-Tree time (k={k}): {end - start:.2f} s")
+   126    157.6 MiB      0.0 MiB        4999       return potentials, end - start
