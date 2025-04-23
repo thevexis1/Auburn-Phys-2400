@@ -1,0 +1,46 @@
+         3999340 function calls (3999339 primitive calls) in 1.172 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+      2/1    0.000    0.000    1.172    1.172 {built-in method builtins.exec}
+        1    0.000    0.000    1.172    1.172 <string>:1(<module>)
+      100    0.388    0.004    1.165    0.012 optimizecode.py:122(compute_potential_naive)
+   499900    0.432    0.000    0.761    0.000 linalg.py:2383(norm)
+        1    0.002    0.002    0.359    0.359 optimizecode.py:131(run_naive)
+   499900    0.165    0.000    0.165    0.000 {method 'dot' of 'numpy.ndarray' objects}
+   499900    0.039    0.000    0.058    0.000 linalg.py:140(isComplexType)
+   499900    0.056    0.000    0.056    0.000 {method 'ravel' of 'numpy.ndarray' objects}
+   999800    0.044    0.000    0.044    0.000 {built-in method builtins.issubclass}
+   499900    0.024    0.000    0.024    0.000 {built-in method numpy.asarray}
+   499900    0.021    0.000    0.021    0.000 linalg.py:2379(_norm_dispatcher)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.print}
+        2    0.000    0.000    0.000    0.000 iostream.py:655(write)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        2    0.000    0.000    0.000    0.000 iostream.py:577(_schedule_flush)
+        1    0.000    0.000    0.000    0.000 iostream.py:259(schedule)
+        1    0.000    0.000    0.000    0.000 socket.py:621(send)
+        2    0.000    0.000    0.000    0.000 iostream.py:505(parent_header)
+        1    0.000    0.000    0.000    0.000 threading.py:1220(is_alive)
+        2    0.000    0.000    0.000    0.000 iostream.py:550(_is_master_process)
+        1    0.000    0.000    0.000    0.000 iostream.py:138(_event_pipe)
+        1    0.000    0.000    0.000    0.000 threading.py:1153(_wait_for_tstate_lock)
+        2    0.000    0.000    0.000    0.000 {built-in method time.time}
+        2    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method posix.getppid}
+        2    0.000    0.000    0.000    0.000 {method 'get' of '_contextvars.ContextVar' objects}
+        1    0.000    0.000    0.000    0.000 {method 'acquire' of '_thread.lock' objects}
+        2    0.000    0.000    0.000    0.000 {method '__exit__' of '_thread.RLock' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        2    0.000    0.000    0.000    0.000 {method 'write' of '_io.StringIO' objects}
+        1    0.000    0.000    0.000    0.000 tz.py:74(utcoffset)
+        2    0.000    0.000    0.000    0.000 {built-in method posix.getpid}
+        1    0.000    0.000    0.000    0.000 {method 'append' of 'collections.deque' objects}
+        1    0.000    0.000    0.000    0.000 threading.py:601(is_set)
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+
+===== Memory Profile: compute_potential_naive =====
+
+The memory_profiler extension is already loaded. To reload it, use:
+  %reload_ext memory_profiler
+
