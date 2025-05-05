@@ -12,7 +12,7 @@ import matplotlib.animation as animation
 
 N = 64
 Lx, Ly = 2*np.pi, 2*np.pi  
-kappa = 0.1     
+kappa = 0.8     
 dt = 0.001
 tmax = 4        
 steps = int(tmax / dt)
